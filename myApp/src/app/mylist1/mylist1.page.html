@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>mylist1</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">mylist1</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <!-- <ion-item-group>
+    <ion-item-divider color="light">A</ion-item-divider>
+    <ion-item>Angola</ion-item>
+    <ion-item>Argentina</ion-item>
+  </ion-item-group>
+  <ion-item-group>
+    <ion-item-divider color="light">B</ion-item-divider>
+    <ion-item>Bngola</ion-item>
+    <ion-item>Brgentina</ion-item>
+  </ion-item-group>
+  <ion-item-group>
+    <ion-item-divider color="light">C</ion-item-divider>
+    <ion-item>Cngola</ion-item>
+    <ion-item>Crgentina</ion-item>
+  </ion-item-group> -->
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of this.productlist">
+      <ion-item>
+        <ion-img src="{{item.icon}}"alt=""></ion-img>
+        <ion-label>{{item.productname}}</ion-label> 
+        <ion-badge color="secondary">{{item.quantity}}</ion-badge>
+      </ion-item>
+  
+      <ion-item-options>
+        <ion-item-option (click) = 'addOrder(item)'>Order</ion-item-option>
+        <ion-item-option color = "danger" (click)="deleteOrder(item)">Delete</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  
+  
+    <ion-item-sliding>
+      <ion-item-options side="start">
+        <ion-item-option color="success">Archive</ion-item-option>
+      </ion-item-options>
+  
+      <ion-item-options side="end">
+        <ion-item-option>Favorite</ion-item-option>
+        <ion-item-option color="danger">Delete</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
+<!-- <ion-content>
+  
+</ion-content> -->
+
